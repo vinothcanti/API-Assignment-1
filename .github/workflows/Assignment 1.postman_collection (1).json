@@ -1,0 +1,594 @@
+{
+	"info": {
+		"_postman_id": "81c5a4f2-8c90-4f38-87de-d21efdb325f9",
+		"name": "Assignment 1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12700687"
+	},
+	"item": [
+		{
+			"name": "SN-OCT",
+			"item": [
+				{
+					"name": "Create token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is check\", function () {\r",
+									"    //pm.response.to.have.status(201);\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});\r",
+									"\r",
+									"Resp = pm.response.json();\r",
+									"sysidd = Resp.result.sys_id;\r",
+									"pm.globals.set(\"G_Sysid\",sysidd);\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "fQGc6-YoxJ6/",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"description\":\"sdfsdfsdfs\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dev86154.service-now.com/api/now/table/incident",
+							"protocol": "https",
+							"host": [
+								"dev86154",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"incident"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Chaining GET Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is check\", function () {\r",
+									"    //pm.response.to.have.status(201);\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://dev86154.service-now.com/api/now/table/incident/0cea291f9722551063d23d400153af1b",
+							"protocol": "https",
+							"host": [
+								"dev86154",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"incident",
+								"0cea291f9722551063d23d400153af1b"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://dev86154.service-now.com/api/now/table/incident/0cea291f9722551063d23d400153af1b",
+									"protocol": "https",
+									"host": [
+										"dev86154",
+										"service-now",
+										"com"
+									],
+									"path": [
+										"api",
+										"now",
+										"table",
+										"incident",
+										"0cea291f9722551063d23d400153af1b"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Set-Cookie",
+									"value": "JSESSIONID=FDE37B0F804E4B7BAACDB0DECA3BBFE3; Path=/; HttpOnly;Secure"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "glide_user=; Max-Age=0; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/; HttpOnly;Secure"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "glide_user_session=; Max-Age=0; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/; HttpOnly;Secure"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "BIGipServerpool_dev86154=2760923146.48958.0000; path=/; Httponly; Secure"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "sem_wait;dur=0, sesh_wait;dur=0"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "WWW-Authenticate",
+									"value": "BASIC realm=\"Service-now\""
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-store,no-cache"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache,no-store,must-revalidate,max-age=-1"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Oct 2022 09:31:48 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=20"
+								},
+								{
+									"key": "Server",
+									"value": "ServiceNow"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": {\n        \"message\": \"User Not Authenticated\",\n        \"detail\": \"Required to provide Auth information\"\n    },\n    \"status\": \"failure\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Chaining PUT Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is check\", function () {\r",
+									"    //pm.response.to.have.status(201);\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "fQGc6-YoxJ6/",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://dev86154.service-now.com/api/now/table/incident/0cea291f9722551063d23d400153af1b",
+							"protocol": "https",
+							"host": [
+								"dev86154",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"incident",
+								"0cea291f9722551063d23d400153af1b"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PUT Response",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://dev86154.service-now.com/api/now/table/incident/0cea291f9722551063d23d400153af1b",
+									"protocol": "https",
+									"host": [
+										"dev86154",
+										"service-now",
+										"com"
+									],
+									"path": [
+										"api",
+										"now",
+										"table",
+										"incident",
+										"0cea291f9722551063d23d400153af1b"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server-Timing",
+									"value": "sem_wait;dur=0, sesh_wait;dur=0"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "X-Is-Logged-In",
+									"value": "true"
+								},
+								{
+									"key": "X-Transaction-ID",
+									"value": "5167f55b976e"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "glide_session_store=2A177D5B97EE151063D23D400153AFE1; Max-Age=60; Expires=Thu, 20-Oct-2022 09:34:05 GMT; Path=/; HttpOnly;Secure"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-store,no-cache"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache,no-store,must-revalidate,max-age=-1"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Oct 2022 09:33:05 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=20"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "ServiceNow"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": {\n        \"parent\": \"\",\n        \"made_sla\": \"true\",\n        \"caused_by\": \"\",\n        \"watch_list\": \"\",\n        \"upon_reject\": \"cancel\",\n        \"sys_updated_on\": \"2022-10-20 08:38:23\",\n        \"child_incidents\": \"0\",\n        \"hold_reason\": \"\",\n        \"origin_table\": \"\",\n        \"task_effective_number\": \"INC0010022\",\n        \"approval_history\": \"\",\n        \"number\": \"INC0010022\",\n        \"resolved_by\": \"\",\n        \"sys_updated_by\": \"admin\",\n        \"opened_by\": {\n            \"link\": \"https://dev86154.service-now.com/api/now/table/sys_user/6816f79cc0a8016401c5a33be04be441\",\n            \"value\": \"6816f79cc0a8016401c5a33be04be441\"\n        },\n        \"user_input\": \"\",\n        \"sys_created_on\": \"2022-10-20 08:38:23\",\n        \"sys_domain\": {\n            \"link\": \"https://dev86154.service-now.com/api/now/table/sys_user_group/global\",\n            \"value\": \"global\"\n        },\n        \"state\": \"1\",\n        \"route_reason\": \"\",\n        \"sys_created_by\": \"admin\",\n        \"knowledge\": \"false\",\n        \"order\": \"\",\n        \"calendar_stc\": \"\",\n        \"closed_at\": \"\",\n        \"cmdb_ci\": \"\",\n        \"delivery_plan\": \"\",\n        \"contract\": \"\",\n        \"impact\": \"3\",\n        \"active\": \"true\",\n        \"work_notes_list\": \"\",\n        \"business_service\": \"\",\n        \"business_impact\": \"\",\n        \"priority\": \"5\",\n        \"sys_domain_path\": \"/\",\n        \"rfc\": \"\",\n        \"time_worked\": \"\",\n        \"expected_start\": \"\",\n        \"opened_at\": \"2022-10-20 08:38:23\",\n        \"business_duration\": \"\",\n        \"group_list\": \"\",\n        \"work_end\": \"\",\n        \"caller_id\": \"\",\n        \"reopened_time\": \"\",\n        \"resolved_at\": \"\",\n        \"approval_set\": \"\",\n        \"subcategory\": \"\",\n        \"work_notes\": \"\",\n        \"universal_request\": \"\",\n        \"short_description\": \"\",\n        \"close_code\": \"\",\n        \"correlation_display\": \"\",\n        \"delivery_task\": \"\",\n        \"work_start\": \"\",\n        \"assignment_group\": \"\",\n        \"additional_assignee_list\": \"\",\n        \"business_stc\": \"\",\n        \"cause\": \"\",\n        \"description\": \"sdfsdfsdfs\",\n        \"origin_id\": \"\",\n        \"calendar_duration\": \"\",\n        \"close_notes\": \"\",\n        \"notify\": \"1\",\n        \"service_offering\": \"\",\n        \"sys_class_name\": \"incident\",\n        \"closed_by\": \"\",\n        \"follow_up\": \"\",\n        \"parent_incident\": \"\",\n        \"sys_id\": \"0cea291f9722551063d23d400153af1b\",\n        \"contact_type\": \"\",\n        \"reopened_by\": \"\",\n        \"incident_state\": \"1\",\n        \"urgency\": \"3\",\n        \"problem_id\": \"\",\n        \"company\": \"\",\n        \"reassignment_count\": \"0\",\n        \"activity_due\": \"\",\n        \"assigned_to\": \"\",\n        \"severity\": \"3\",\n        \"comments\": \"\",\n        \"approval\": \"not requested\",\n        \"sla_due\": \"\",\n        \"comments_and_work_notes\": \"\",\n        \"due_date\": \"\",\n        \"sys_mod_count\": \"0\",\n        \"reopen_count\": \"0\",\n        \"sys_tags\": \"\",\n        \"escalation\": \"0\",\n        \"upon_approval\": \"proceed\",\n        \"correlation_id\": \"\",\n        \"location\": \"\",\n        \"category\": \"inquiry\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Chining DELETE Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is check\", function () {\r",
+									"    //pm.response.to.have.status(201);\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "fQGc6-YoxJ6/",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"raj\"\r\n}"
+						},
+						"url": {
+							"raw": "https://dev86154.service-now.com/api/now/table/incident/370f55d39722551063d23d400153af5f",
+							"protocol": "https",
+							"host": [
+								"dev86154",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"incident",
+								"370f55d39722551063d23d400153af5f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Chaining POST Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is check\", function () {\r",
+									"    //pm.response.to.have.status(201);\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "fQGc6-YoxJ6/",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://dev86154.service-now.com/api/now/table/incident",
+							"protocol": "https",
+							"host": [
+								"dev86154",
+								"service-now",
+								"com"
+							],
+							"path": [
+								"api",
+								"now",
+								"table",
+								"incident"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://dev86154.service-now.com/api/now/table/incident",
+									"protocol": "https",
+									"host": [
+										"dev86154",
+										"service-now",
+										"com"
+									],
+									"path": [
+										"api",
+										"now",
+										"table",
+										"incident"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server-Timing",
+									"value": "sem_wait;dur=0, sesh_wait;dur=0"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "X-Is-Logged-In",
+									"value": "true"
+								},
+								{
+									"key": "X-Transaction-ID",
+									"value": "b9777d1397ee"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "glide_session_store=2A177D5B97EE151063D23D400153AFE1; Max-Age=60; Expires=Thu, 20-Oct-2022 09:34:23 GMT; Path=/; HttpOnly;Secure"
+								},
+								{
+									"key": "Location",
+									"value": "https://dev86154.service-now.com/api/now/table/incident/f577b51b9762551063d23d400153af29"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-store,no-cache"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache,no-store,must-revalidate,max-age=-1"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Oct 2022 09:33:23 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=20"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Server",
+									"value": "ServiceNow"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": {\n        \"parent\": \"\",\n        \"made_sla\": \"true\",\n        \"caused_by\": \"\",\n        \"watch_list\": \"\",\n        \"upon_reject\": \"cancel\",\n        \"sys_updated_on\": \"2022-10-20 09:33:23\",\n        \"child_incidents\": \"0\",\n        \"hold_reason\": \"\",\n        \"origin_table\": \"\",\n        \"task_effective_number\": \"INC0010028\",\n        \"approval_history\": \"\",\n        \"number\": \"INC0010028\",\n        \"resolved_by\": \"\",\n        \"sys_updated_by\": \"admin\",\n        \"opened_by\": {\n            \"link\": \"https://dev86154.service-now.com/api/now/table/sys_user/6816f79cc0a8016401c5a33be04be441\",\n            \"value\": \"6816f79cc0a8016401c5a33be04be441\"\n        },\n        \"user_input\": \"\",\n        \"sys_created_on\": \"2022-10-20 09:33:23\",\n        \"sys_domain\": {\n            \"link\": \"https://dev86154.service-now.com/api/now/table/sys_user_group/global\",\n            \"value\": \"global\"\n        },\n        \"state\": \"1\",\n        \"route_reason\": \"\",\n        \"sys_created_by\": \"admin\",\n        \"knowledge\": \"false\",\n        \"order\": \"\",\n        \"calendar_stc\": \"\",\n        \"closed_at\": \"\",\n        \"cmdb_ci\": \"\",\n        \"delivery_plan\": \"\",\n        \"contract\": \"\",\n        \"impact\": \"3\",\n        \"active\": \"true\",\n        \"work_notes_list\": \"\",\n        \"business_service\": \"\",\n        \"business_impact\": \"\",\n        \"priority\": \"5\",\n        \"sys_domain_path\": \"/\",\n        \"rfc\": \"\",\n        \"time_worked\": \"\",\n        \"expected_start\": \"\",\n        \"opened_at\": \"2022-10-20 09:33:23\",\n        \"business_duration\": \"\",\n        \"group_list\": \"\",\n        \"work_end\": \"\",\n        \"caller_id\": \"\",\n        \"reopened_time\": \"\",\n        \"resolved_at\": \"\",\n        \"approval_set\": \"\",\n        \"subcategory\": \"\",\n        \"work_notes\": \"\",\n        \"universal_request\": \"\",\n        \"short_description\": \"\",\n        \"close_code\": \"\",\n        \"correlation_display\": \"\",\n        \"delivery_task\": \"\",\n        \"work_start\": \"\",\n        \"assignment_group\": \"\",\n        \"additional_assignee_list\": \"\",\n        \"business_stc\": \"\",\n        \"cause\": \"\",\n        \"description\": \"\",\n        \"origin_id\": \"\",\n        \"calendar_duration\": \"\",\n        \"close_notes\": \"\",\n        \"notify\": \"1\",\n        \"service_offering\": \"\",\n        \"sys_class_name\": \"incident\",\n        \"closed_by\": \"\",\n        \"follow_up\": \"\",\n        \"parent_incident\": \"\",\n        \"sys_id\": \"f577b51b9762551063d23d400153af29\",\n        \"contact_type\": \"\",\n        \"reopened_by\": \"\",\n        \"incident_state\": \"1\",\n        \"urgency\": \"3\",\n        \"problem_id\": \"\",\n        \"company\": \"\",\n        \"reassignment_count\": \"0\",\n        \"activity_due\": \"\",\n        \"assigned_to\": \"\",\n        \"severity\": \"3\",\n        \"comments\": \"\",\n        \"approval\": \"not requested\",\n        \"sla_due\": \"\",\n        \"comments_and_work_notes\": \"\",\n        \"due_date\": \"\",\n        \"sys_mod_count\": \"0\",\n        \"reopen_count\": \"0\",\n        \"sys_tags\": \"\",\n        \"escalation\": \"0\",\n        \"upon_approval\": \"proceed\",\n        \"correlation_id\": \"\",\n        \"location\": \"\",\n        \"category\": \"inquiry\"\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
